@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henry Russom — AI engineering & product</title>
+<meta name="description" content="Henry Russom builds AI systems people actually use. CS (AI) + Informatics at Indiana University. DemandView case study: AI triage for 500-page insurance demand packages.">
+<meta property="og:title" content="Henry Russom">
+<meta property="og:description" content="I build AI systems that people actually use. Case study: DemandView, AI triage for bodily-injury demand packages.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232a78d6'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='15' fill='white' text-anchor='middle'%3EHR%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f9f9f7;
+    --surface: #fcfcfb;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --muted: #898781;
+    --rule: #e1e0d9;
+    --accent: #2a78d6;
+    --accent-deep: #1c5cab;
+    --good: #006300;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --paper: #0d0d0d;
+      --surface: #1a1a19;
+      --ink: #f4f4f2;
+      --ink-2: #c3c2b7;
+      --muted: #898781;
+      --rule: #2c2c2a;
+      --accent: #3987e5;
+      --accent-deep: #86b6ef;
+      --good: #0ca30c;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--accent-deep); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--accent-deep); }
+
+  /* ---------- hero ---------- */
+  header { padding: 5.5rem 0 3.5rem; }
+  .kicker {
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.1rem;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400; font-size: clamp(2.4rem, 7vw, 3.4rem);
+    line-height: 1.08; letter-spacing: -.01em;
+  }
+  .tagline {
+    font-family: Georgia, serif; font-style: italic;
+    font-size: 1.25rem; color: var(--ink-2); margin-top: 1rem;
+  }
+  .facts { margin-top: 1.6rem; color: var(--ink-2); font-size: .95rem; }
+  .facts span { white-space: nowrap; }
+  .dot { color: var(--muted); padding: 0 .45rem; }
+  nav.links { margin-top: 1.8rem; display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: .95rem; }
+  nav.links a { color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  nav.links a:hover { border-bottom-color: var(--ink); }
+
+  /* ---------- sections ---------- */
+  section { padding: 2.6rem 0; border-top: 1px solid var(--rule); }
+  .label {
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.4rem;
+  }
+  h2 {
+    font-family: Georgia, serif; font-weight: 400;
+    font-size: 1.7rem; line-height: 1.25; margin-bottom: .9rem;
+  }
+  h3 {
+    font-family: Georgia, serif; font-weight: 400;
+    font-size: 1.18rem; margin: 2rem 0 .55rem;
+  }
+  p { margin-bottom: 1rem; color: var(--ink); }
+  .now-grid { display: grid; gap: 1rem; }
+  @media (min-width: 640px) { .now-grid { grid-template-columns: 1fr 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 1.15rem 1.25rem; font-size: .95rem;
+  }
+  .card b { display: block; font-size: 1.02rem; margin-bottom: .2rem; }
+  .card .role { color: var(--accent-deep); font-size: .85rem; margin-bottom: .5rem; }
+  .card p { color: var(--ink-2); margin: 0; }
+
+  /* ---------- case study ---------- */
+  .cs-title { margin-bottom: .2rem; }
+  .cs-sub { color: var(--muted); font-size: .9rem; margin-bottom: 1.6rem; }
+  .pull {
+    font-family: Georgia, serif; font-style: italic; font-size: 1.15rem;
+    color: var(--ink-2); border-left: 2px solid var(--accent);
+    padding-left: 1.1rem; margin: 1.4rem 0;
+  }
+  figure { margin: 2rem 0; }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption { font-size: .82rem; color: var(--muted); margin-top: .5rem; text-align: center; }
+  .status-chip {
+    display: inline-block; font-size: .82rem; font-weight: 600;
+    color: var(--good); border: 1px solid var(--rule); background: var(--surface);
+    border-radius: 999px; padding: .2rem .75rem; margin-bottom: 1rem;
+  }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--rule); padding: 2.6rem 0 4rem; color: var(--ink-2); font-size: .92rem; }
+  footer .sig { font-family: Georgia, serif; font-style: italic; margin-bottom: .8rem; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="kicker">Bloomington, Indiana</div>
+    <h1>Henry Russom</h1>
+    <p class="tagline">I build AI systems that people actually use.</p>
+    <p class="facts">
+      <span>CS (AI specialization) + Informatics, Indiana University ’28</span><span class="dot">·</span>
+      <span>AI intern @ DMC Insurance</span><span class="dot">·</span>
+      <span>Founding engineer @ Rally Getaway</span>
+    </p>
+    <nav class="links">
+      <a href="https://github.com/henryrussom">GitHub</a>
+      <a href="https://www.linkedin.com/in/henry-russom/">LinkedIn</a>
+      <a href="mailto:hrussom@iu.edu">hrussom@iu.edu</a>
+      <a href="Henry_Russom_Resume_2026.pdf">Resume</a>
+    </nav>
+  </header>
+
+  <section id="now">
+    <div class="label">Now</div>
+    <div class="now-grid">
+      <div class="card">
+        <b>DMC Insurance</b>
+        <div class="role">AI Software Development Intern · Indianapolis</div>
+        <p>Built DemandView, an AI pipeline that turns 500-page scanned demand packages into fully organized claims. In production with the bodily-injury claims team since July 2026.</p>
+      </div>
+      <div class="card">
+        <b>Rally Getaway</b>
+        <div class="role">Backend Engineer, Founding Team</div>
+        <p>One of two founding engineers at an AI event-booking startup: TypeScript and Supabase backend turning natural-language event requests into scored vendor matches and bookable packages.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="demandview">
+    <div class="label">Case study</div>
+    <h2 class="cs-title">DemandView: AI triage for bodily-injury demand packages</h2>
+    <div class="cs-sub">DMC Insurance · Summer 2026</div>
+    <span class="status-chip">✓ In production since July 2026</span>
+
+    <h3>The user</h3>
+    <p>Bodily-injury claims adjusters, many of whom have been working claims for decades. When a demand package arrives, roughly 500 pages of scanned, often blurry medical bills, medical records, and police reports, the adjuster reads it manually and takes notes on paper. One demand costs 4+ hours of reading before any actual judgment begins.</p>
+
+    <h3>Finding the problem</h3>
+    <p>I spent my first week shaking hands in the claims department: an hour each with adjusters and reps, mapping what they actually do all day. I listened for the things people joked or complained about, and for redundancies that veterans no longer notice. Watching one adjuster scroll a 500-page packet taking paper notes, I asked how long that takes. "Four or five hours. It always does."</p>
+    <p>One conversation was not enough. Different adjusters described the work differently, so I kept cross-checking until I had a universal view, then took it to the president of claims, whose goal is simple: maintain or increase output. He had a real concern about AI: he did not want adjusters to stop knowing their claims deeply. That constraint shaped the whole product. The demand arrives late in a claim's life, when the adjuster already knows the claim well. Organizing the demand is grunt work, not judgment.</p>
+    <p class="pull">So the design principle became: AI organizes, adjusters decide.</p>
+
+    <h3>Scoping</h3>
+    <p>My first idea was a full claims dashboard for every adjuster and rep. My manager pushed back hard: that changes a working process far too much at once. I narrowed the scope repeatedly until I could write out the complete goal tangibly: analyze one demand package, end to end. I spent two weeks aligning on scope before writing code, shipped a proof of concept, and ran recurring demos with adjusters whose feedback drove the feature set from there.</p>
+
+    <h3>What I built</h3>
+    <p>A custom AI triage engine, built in-house on Azure rather than adapting our parent company's software: each demand is split into per-page images and sent to the Claude API in three-page batches, with a JSON handoff carrying state between calls — what is done, what is in progress, what must not be double-counted. The pipeline runs on Azure infrastructure end to end, with documents staged in Azure Data Lake and results landing in SQL Server, surfaced on a web frontend with tabs for medical bills, medical records, general overview, police report, settlement review, insurance, and data visualization, including a treatment-timeline view. A built-in chatbot queries the same database for quick questions. A full demand processes hands-off in roughly two hours, against 4+ hours of manual reading.</p>
+
+    <figure>
+      <svg viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DemandView pipeline diagram">
+        <defs>
+          <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/>
+          </marker>
+        </defs>
+        <g font-family="system-ui, sans-serif" font-size="11.5" fill="var(--ink)">
+          <!-- box 1 -->
+          <rect x="4" y="45" width="118" height="60" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+          <text x="63" y="70" text-anchor="middle" font-weight="600">Demand package</text>
+          <text x="63" y="88" text-anchor="middle" fill="var(--muted)" font-size="10.5">~500 scanned pages</text>
+          <!-- box 2 -->
+          <rect x="152" y="45" width="108" height="60" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+          <text x="206" y="70" text-anchor="middle" font-weight="600">Page images</text>
+          <text x="206" y="88" text-anchor="middle" fill="var(--muted)" font-size="10.5">split per page</text>
+          <!-- box 3 (accent) -->
+          <rect x="290" y="38" width="140" height="74" rx="8" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="360" y="61" text-anchor="middle" font-weight="600" fill="var(--accent-deep)">Claude API</text>
+          <text x="360" y="79" text-anchor="middle" fill="var(--muted)" font-size="10.5">3-page batches</text>
+          <text x="360" y="95" text-anchor="middle" fill="var(--muted)" font-size="10.5">JSON state handoff ↺</text>
+          <!-- box 4 -->
+          <rect x="460" y="45" width="98" height="60" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+          <text x="509" y="70" text-anchor="middle" font-weight="600">SQL Server</text>
+          <text x="509" y="88" text-anchor="middle" fill="var(--muted)" font-size="10.5">on Azure</text>
+          <!-- box 5 -->
+          <rect x="588" y="45" width="88" height="60" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+          <text x="632" y="70" text-anchor="middle" font-weight="600">Adjuster UI</text>
+          <text x="632" y="88" text-anchor="middle" fill="var(--muted)" font-size="10.5">tabs + timeline</text>
+          <!-- arrows -->
+          <line x1="122" y1="75" x2="149" y2="75" stroke="var(--muted)" marker-end="url(#arr)"/>
+          <line x1="260" y1="75" x2="287" y2="75" stroke="var(--muted)" marker-end="url(#arr)"/>
+          <line x1="430" y1="75" x2="457" y2="75" stroke="var(--muted)" marker-end="url(#arr)"/>
+          <line x1="558" y1="75" x2="585" y2="75" stroke="var(--muted)" marker-end="url(#arr)"/>
+        </g>
+      </svg>
+      <figcaption>The DemandView pipeline: same-day, hands-off, on Azure end to end.</figcaption>
+    </figure>
+
+    <h3>How it evolved</h3>
+    <p>The shipped product is considerably bigger than the one I scoped. Demoing early and often meant a steady stream of adjuster requests, and because the users driving them had decades of claims experience, most requests were good ones. I said yes to nearly all of them: roughly thirty features, each about a day of work, none in the original plan. The upside was real, twice over: the product got sharper with every cycle, and the adjusters who saw their suggestions shipped became its advocates before it ever launched. The cost was also real: the scope grew several times over, and the project ran well past its original timeline.</p>
+
+    <h3>Status</h3>
+    <p>In production with the bodily-injury claims team since July 2026, with adjuster onboarding sessions underway. A full 500-page demand comes back the same morning it is submitted, as thousands of structured, filterable entries instead of a stack of paper notes.</p>
+
+    <h3>What I would do differently</h3>
+    <p>Separate listening from committing. My openness to feedback built the product's best features and its earliest champions, but treating every good suggestion as a v1 commitment is what stretched the timeline. Next time the discipline is a versioned roadmap: every request gets heard and logged, the best ones earn a place in the current version, and the rest wait for v2 without guilt. "Great idea, it's in the next release" keeps both the trust and the ship date.</p>
+  </section>
+
+  <section id="about">
+    <div class="label">About</div>
+    <p>I'm a junior at Indiana University doing a dual degree in computer science (AI specialization) and informatics, with minors in business and Spanish. Before software I spent five summers on residential construction sites, where I also worked as the English–Spanish interpreter between site managers and crews — which turns out to be decent training for translating between claims adjusters and AI pipelines.</p>
+    <p>What I like building sits at the same intersection every time: AI applied to messy, high-stakes, real-world work — insurance claims, event logistics — where the hard part isn't the model, it's earning the trust of the people who have to use it.</p>
+  </section>
+
+  <footer>
+    <div class="sig">Get in touch — I answer everything.</div>
+    <div>
+      <a href="mailto:hrussom@iu.edu">hrussom@iu.edu</a><span class="dot">·</span>
+      <a href="https://github.com/henryrussom">GitHub</a><span class="dot">·</span>
+      <a href="https://www.linkedin.com/in/henry-russom/">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
