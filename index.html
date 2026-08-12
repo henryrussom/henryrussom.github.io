@@ -113,6 +113,11 @@
     border-radius: 999px; padding: .2rem .75rem; margin-bottom: 1rem;
   }
 
+  /* ---------- images ---------- */
+  figure.shot img {
+    width: 100%; display: block; border-radius: 10px;
+    border: 1px solid var(--rule); background: var(--surface);
+  }
   /* ---------- footer ---------- */
   footer { border-top: 1px solid var(--rule); padding: 2.6rem 0 4rem; color: var(--ink-2); font-size: .92rem; }
   footer .sig { font-family: Georgia, serif; font-style: italic; margin-bottom: .8rem; }
@@ -134,7 +139,7 @@
       <a href="https://github.com/henryrussom">GitHub</a>
       <a href="https://www.linkedin.com/in/henry-russom/">LinkedIn</a>
       <a href="mailto:hrussom@iu.edu">hrussom@iu.edu</a>
-      <a href="HenryRussom_07:30:26.pdf">Resume</a>
+      <a href="HenryRussom_08-08-26.pdf">Resume</a>
     </nav>
   </header>
 
@@ -144,7 +149,7 @@
       <div class="card">
         <b>DMC Insurance</b>
         <div class="role">AI Software Development Intern · Indianapolis</div>
-        <p>Built DemandView, an AI pipeline that turns 500-page scanned demand packages into fully organized claims. In production with the bodily-injury claims team since July 2026.</p>
+        <p>Built DemandView, an AI pipeline that turns 500-page scanned demand packages into fully organized claims. In production with the bodily-injury claims team since July 2026. Returning remotely this fall to take DemandView and two more internal tools to production.</p>
       </div>
       <div class="card">
         <b>Rally Getaway</b>
@@ -173,6 +178,19 @@
 
     <h3>What I built</h3>
     <p>A custom AI triage engine, built in-house on Azure rather than adapting our parent company's software: each demand is split into per-page images and sent to the Claude API in three-page batches, with a JSON handoff carrying state between calls — what is done, what is in progress, what must not be double-counted. The pipeline runs on Azure infrastructure end to end, with documents staged in Azure Data Lake and results landing in SQL Server, surfaced on a web frontend with tabs for medical bills, medical records, general overview, police report, settlement review, insurance, and data visualization, including a treatment-timeline view. A built-in chatbot queries the same database for quick questions. A full demand processes hands-off in roughly two hours, against 4+ hours of manual reading.</p>
+
+    <figure class="shot">
+      <img src="images/demandview-hero.png" alt="DemandView header on a test claim: DMC Insurance logo, active claim selector, and hero cards showing settlement demand, total submitted specials, next key date, and county" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>DemandView's front page (test data): the active claim at a glance — demand, submitted specials, next key date, and venue.</figcaption>
+    </figure>
+
+    <!-- UPLOAD SHOT: drop a screenshot of the demand-submission/upload screen
+         (from the TEST claim) into the repo as images/demandview-upload.png
+         and this figure appears automatically. -->
+    <figure class="shot">
+      <img src="images/demandview-upload.png" alt="DemandView demand package upload screen where adjusters submit a scanned demand package for processing" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>Where it starts: an adjuster submits a scanned demand package and picks it up processed the same day.</figcaption>
+    </figure>
 
     <figure>
       <svg viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DemandView pipeline diagram">
@@ -213,11 +231,26 @@
       <figcaption>The DemandView pipeline: same-day, hands-off, on Azure end to end.</figcaption>
     </figure>
 
+    <figure class="shot">
+      <img src="images/demandview-medical-history.png" alt="DemandView medical history tab on a test claim: grouped treatment timeline, prior injuries, pre-existing conditions, and provider reference data, deduplicated with source-page links" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>Medical history, organized (test data): a grouped treatment timeline, prior injuries, and pre-existing conditions deduplicated from hundreds of mentions.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="images/demandview-ai-narrative.png" alt="DemandView AI narrative tab on a test claim: a generated clinical records narrative above 46 extracted clinical notes, each citing its source page" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>The AI clinical narrative (test data): a three-paragraph summary over 46 extracted notes, each citing its source page.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="images/demandview-data-vision.png" alt="DemandView Data Vision treatment overview: a full event timeline from date of loss to demand letter, treatment-gap and provider stats, automated fraud and risk pattern flags, and billed amount by provider" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>Data Vision: the full treatment timeline from date of loss to demand letter, with automated pattern flags and billed-amount-by-provider breakdowns adjusters verify against source pages.</figcaption>
+    </figure>
+
     <h3>How it evolved</h3>
     <p>The shipped product is considerably bigger than the one I scoped. Demoing early and often meant a steady stream of adjuster requests, and because the users driving them had decades of claims experience, most requests were good ones. I said yes to nearly all of them: roughly thirty features, each about a day of work, none in the original plan. The upside was real, twice over: the product got sharper with every cycle, and the adjusters who saw their suggestions shipped became its advocates before it ever launched. The cost was also real: the scope grew several times over, and the project ran well past its original timeline.</p>
 
     <h3>Status</h3>
-    <p>In production with the bodily-injury claims team since July 2026, with adjuster onboarding sessions underway. A full 500-page demand comes back the same morning it is submitted, as thousands of structured, filterable entries instead of a stack of paper notes.</p>
+    <p>In production with the bodily-injury claims team since July 2026, with adjuster onboarding sessions underway. A full 500-page demand comes back the same morning it is submitted, as thousands of structured, filterable entries instead of a stack of paper notes. I accepted a return offer for the fall: DemandView and two more internal tools go to production, and I continue forward development remotely through the semester, working with the adjusters over Zoom.</p>
 
     <h3>What I would do differently</h3>
     <p>Separate listening from committing. My openness to feedback built the product's best features and its earliest champions, but treating every good suggestion as a v1 commitment is what stretched the timeline. Next time the discipline is a versioned roadmap: every request gets heard and logged, the best ones earn a place in the current version, and the rest wait for v2 without guilt. "Great idea, it's in the next release" keeps both the trust and the ship date.</p>
